@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #dfe6e9 !important ;
+}
+
+/* VANS-COLOR */
+.van-simple {
+  background-color: #ffc312;
+}
+.van-rugged {
+  background-color: #218c74;
+}
+.van-luxury {
+  background-color: #2c2c54;
+}
+.vans-type {
+  padding: 5px;
+  text-align: center;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 17px;
+}
+/* VANS-COLOR */
+
+.header-vans {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-vans a {
+  text-decoration: none;
+  color: black;
+  padding: 20px;
+}
+.header-vans a:hover {
+  text-decoration: underline;
+}
+.header-home {
+  font-size: 40px;
+}
+.header-links {
+  gap: 20;
+  display: flex;
+  font-size: 20px;
+}
+/* Home Start */
+
+.home-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-image: url("https://lp-cms-production.imgix.net/2020-11/camervanUS.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
+.home-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+/* Home End  */
+
+/* About Start */
+
+.about-vans img {
+  width: 100%;
+}
+.about-vans p {
+  font-size: 20px;
+}
+/* About End */
+/* vans-page START */
+.vans-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+.vans-container a {
+  text-decoration: none;
+  color: #2c2c54;
+}
+.vans-page {
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.vans-page img {
+  width: 100%;
+}
+
+/* vans-page END */
+/* van-detail START */
+.van-detail {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.van-detail img {
+  width: 700px;
+  border: 1px solid #2c2c54;
+  margin-bottom: 15px;
+}
+
+/* host-VANS START */
+.host-header a {
+  padding: 30px 35px;
+  text-decoration: none;
+  font-size: 19px;
+  color: #2c2c54;
+}
+.host-header a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  color: black;
+  font-weight: 700;
+}
+.host-vans-container {
+  margin: 10px 20px;
+  background-color: #f4eded;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+.host-vans-container img {
+  width: 170px;
+  margin: 20px 20px;
+  border-radius: 10px;
+  color: #2c2c54;
+}
+.host-vans-container h3 {
+  padding-bottom: 25px;
+}
+.host-vans-container h5 {
+  position: relative;
+  top: 30px;
+  right: 12%;
+}
+/* host-VANS END */
+
+/* host-van-detail START */
+.host-van-detail-container{
+  display: flex;
+  align-items: center;
+  background-color: #f4eded;
+  margin-top: 30px;
+}
+.host-van-detail-container img {
+  width: 200px;
+  margin: 20px 20px;
+  border-radius: 10px;
+}
+.host-van-detail-container span{
+  position: relative;
+  bottom: 55px;
+  left: 10px;
+
+}
+.host-van-detail-container h5 {
+  position: relative;
+  top: 50px;
+  right: 11%;
+}
+.host-van-detail-nav{
+  background-color: #f4eded;
+  padding: 30px 30px;
+}
+.host-van-detail-nav a{
+  font-size: 17px;
+  font-weight: 500;
+}
+/* host-van-detail END */
+
+
+.simple-selected {
+  background-color: #ffc107;
+}
+
+.rugged-selected {
+  background-color: #198754;
+}
+
+.luxury-selected {
+  background-color: #212529;
+}
