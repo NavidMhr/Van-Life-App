@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import {Link, useParams } from "react-router-dom";
+import {Link, useLocation, useParams } from "react-router-dom";
 import { FaArrowLeft } from 'react-icons/fa';
 
 export default function VanDetail() {
   const [vanDetail , setVanDetail] = useState({})
   const params = useParams();
+ const location= useLocation()
+console.log(location.state.search);
 
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -17,10 +19,11 @@ export default function VanDetail() {
     rugged: "success",
     luxury: "dark",
   };
+  const backToVans = location.state.search.substring(6)
 
-  return (
+   return (
     <>
-    <Link to=".." relative="path" className="text-dark p-5" > <FaArrowLeft/> Back to All Vans</Link>
+    <Link to=".." relative="path" className="text-dark p-5" > <FaArrowLeft/> Back to {backToVans ? backToVans : "All"} Vans</Link>
        <div className="van-detail">
           <img src={vanDetail.imageUrl} alt="" />
             <span className={`vans-type van-${vanDetail.type}`}>{vanDetail.type}</span>

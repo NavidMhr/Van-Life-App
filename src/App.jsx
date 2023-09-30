@@ -16,8 +16,11 @@ import HostVanDetail from "./page/HosLayout/HostVanDetail";
 import HostDetail from "./page/HosLayout/HostDetail";
 import HostPricing from "./page/HosLayout/HostPricing";
 import HostPhotos from "./page/HosLayout/HostPhotos";
+import Login from "./components/Login";
+import AuthLayout from "./components/AuthLayout"
 
 import "./server"
+import NotFound from "./components/NotFound";
 export default function App(){
 
   return(
@@ -28,22 +31,26 @@ export default function App(){
             <Route index element={<Home/>} />
             <Route index element={<Host/>} />
             <Route path="about" element={<About/>} />
+            <Route path="login" element={<Login/>} />
               <Route path="vans" element={<Vans/>}>
                 <Route index element={<VansFilter/>} />
               </Route>
             <Route path="vans/:id" element={<VanDetail/>} />
 
-              <Route path="host" element={<HostLayout/>}>
-                <Route index element={<Dashboard/>}/>
-                <Route path="income" element={<Income/>}/>
-                <Route path="vans" element={<HostVans/>}/>
-                  <Route path="vans/:id" element={<HostVanDetail/>}>
-                      <Route index element={<HostDetail/>} />
-                      <Route to="pricing" element={<HostPricing/>} />
-                      <Route to="photos" element={<HostPhotos/>} />
-                  </Route>
-                <Route path="reviews" element={<Reviews/>}/>
+              <Route element={<AuthLayout/>}>
+                <Route path="host" element={<HostLayout/>}>
+                  <Route index element={<Dashboard/>}/>
+                  <Route path="income" element={<Income/>}/>
+                  <Route path="vans" element={<HostVans/>}/>
+                    <Route path="vans/:id" element={<HostVanDetail/>}>
+                        <Route index element={<HostDetail/>} />
+                        <Route to="pricing" element={<HostPricing/>} />
+                        <Route to="photos" element={<HostPhotos/>} />
+                    </Route>
+                  <Route path="reviews" element={<Reviews/>}/>
+                </Route>
               </Route>
+                <Route path="*" element={<NotFound/>} />
           </Route>
       </Routes>
     </BrowserRouter>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet, useSearchParams } from "react-router-dom";
+import { Link, Outlet , useSearchParams } from "react-router-dom";
 
 export default function Vans() {
   const [vanState, setVansState] = useState([]);
   const [searchParams, setUseParams] = useSearchParams();
+
 
   useEffect(() => {
     fetch("/api/vans")
@@ -18,7 +19,7 @@ export default function Vans() {
     : vanState;
 
   const VansResult = showedVans.map((van) => (
-    <Link to={`/vans/${van.id}`} key={van.id}>
+    <Link to={`/vans/${van.id}`} key={van.id} state={{ search : `?${searchParams.toString()}` }} >
       <div className="vans-page">
         <img src={van.imageUrl} alt="" />
         <h2>{van.name}</h2>
@@ -31,7 +32,7 @@ export default function Vans() {
   return (
     <>
       <div>
-        <Outlet context={{ typeFilter ,  setUseParams }} />
+        <Outlet context={{ searchParams , typeFilter ,  setUseParams }} />
       </div>
       <div className="vans-container">{VansResult}</div>
     </>

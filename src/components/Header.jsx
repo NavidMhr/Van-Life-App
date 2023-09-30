@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import { FaUserCircle } from 'react-icons/fa';
+
 
 export default function Header(){
 
@@ -12,6 +14,7 @@ export default function Header(){
                 <Link to="host">Host</Link> 
                 <Link to="about">About</Link>
                 <Link to="vans">Vans</Link>
+                <Link to="login"> <FaUserCircle/> </Link>
                 
                 </div>
             </header>

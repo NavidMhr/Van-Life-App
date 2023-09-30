@@ -13,7 +13,7 @@ export default function HostVanDetail() {
       .then((res) => res.json())
       .then((data) => setHostVanDetail(data.vans));
   }, [params.id]);
-
+  const hostDetail = hostVanDetail.description
   return (
     <>
       <div className="host-van-detail-container">
@@ -22,8 +22,9 @@ export default function HostVanDetail() {
         <h3>{hostVanDetail.name}</h3>
         <h5>${hostVanDetail.price}/Day</h5>
       </div>
+
         <VanDetailNav/>
-        <Outlet/>
+        <Outlet context={{ hostDetail }} />
     </>
   );
 }

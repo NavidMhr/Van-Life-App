@@ -1,7 +1,16 @@
 import React from "react";
-
+import { useOutletContext } from "react-router-dom";
 
 export default function HostDetail(){
+      const {hostDetail} = useOutletContext()
 
-    return <h1> bbsbsbusbjbkd is here </h1>
+    return(
+        <>
+            <div className="host-detail">
+                {
+                    hostDetail
+                }    
+            </div>    
+        </>
+    )
 }

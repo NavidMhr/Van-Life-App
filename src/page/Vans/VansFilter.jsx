@@ -1,11 +1,18 @@
 import React from "react";
-import { useOutletContext, useParams } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 export default function VansFilter() {
-  const { typeFilter, setUseParams } = useOutletContext();
+  const { typeFilter , setUseParams } = useOutletContext();
 
-  function setTypeFilter(type) {
-    setUseParams({ type });
+  function setTypeFilter( key , value ){
+    setUseParams(prevParams=>{
+      if( value === null){
+        prevParams.delete(key)
+      }else{
+        prevParams.set(key , value)
+      }
+      return prevParams
+    })
   }
 
   function isSelected(type) {
@@ -21,29 +28,30 @@ export default function VansFilter() {
           className={`btn btn-outline-warning text-light mx-4 ${
             isSelected("simple") ? "active" : ""
           }`}
-          onClick={() => setTypeFilter("simple")}>
+          onClick={() => setTypeFilter( "type" , "simple")}>
           SIMPLE
         </button>
         <button
           className={`btn btn-outline-success mx-4 ${
             isSelected("rugged") ? "active" : ""
           }`}
-          onClick={() => setTypeFilter("rugged")}>
+          onClick={() => setTypeFilter( "type" , "rugged")}>
           RUGGED
         </button>
         <button
           className={`btn btn-outline-dark mx-4 ${
             isSelected("luxury") ? "active" : ""
           }`}
-          onClick={() => setTypeFilter("luxury")}>
+          onClick={() => setTypeFilter( "type" , "luxury")}>
           LUXURY
         </button>
-        <button
-          className="btn btn-outline-light mx-4"
-          onClick={() => setUseParams({})}>
+        {
+          typeFilter ?   <button className="btn btn-outline-light mx-4"
+          onClick={() => setTypeFilter( "type" , null) }>
           CLEAR
-        </button>
+        </button> : null
+        }
+
       </div>
     </>
-  );
-}
+)}
